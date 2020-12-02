@@ -127,7 +127,6 @@
 .form_flex_op {
   display: flex;
 }
-
 @media screen and (max-width: 360px) {
   .header {
     height: 100%;
@@ -400,23 +399,21 @@ img {
   margin: 0 auto;
   overflow: hidden;
 }
-ul {
+.play ul {
   position: absolute;
   top: 0;
   left: 0;
   width: 500%;
 }
-ul li {
+.play ul li {
   max-width: 100%;
   position: relative;
   float: left;
 }
-ul img {
-  max-width: 100%;
+.play ul img {
   height: auto;
-  float: left; /*讓圖片之間沒空隙*/
+  float: left;
 }
-
 #paly_detail {
   position: absolute;
   width: 25%;
@@ -448,10 +445,9 @@ ul img {
   color: #8b8b8a;
   margin: 10px 5px 0 5px;
 }
-#paly_detail div i:hover {
+#paly_detail label i:hover {
   color: #57c5a0;
 }
-
 #menu_out {
   background-color: #2e2e2e;
 }
@@ -486,7 +482,6 @@ ol li {
   top: -20px;
   left: 0%;
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
 }
 .bar p {
@@ -695,9 +690,7 @@ ol li {
   }
   ul img {
     max-width: 736px;
-
-    float: left; /*讓圖片之間沒空隙*/
-    background-color: red;
+    float: left;
   }
 
   #paly_detail p {
@@ -741,9 +734,7 @@ ol li {
   }
   ul img {
     max-width: 768px;
-
-    float: left; /*讓圖片之間沒空隙*/
-    background-color: red;
+    float: left;
   }
 
   #paly_detail {
@@ -791,14 +782,13 @@ ol li {
     margin: 0 auto;
     height: 336px;
   }
-  ul li {
+  .play ul li {
     max-width: 100%;
     height: auto;
   }
-  ul img {
+  .play ul img {
     max-width: 1024px;
-
-    float: left; /*讓圖片之間沒空隙*/
+    float: left;
   }
   #paly_detail p {
     font-size: 15px;
@@ -1180,30 +1170,26 @@ ol li {
 
 #addon_item_2 {
   grid-area: A2;
-
+}
+#addon_item_2,
+#addon_item_3,
+#addon_item_4 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 #addon_item_3 {
   grid-area: A3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 #addon_fw1:hover,
 #addon_fw2:hover,
 #addon_fw3:hover,
 #addon_fw4:hover {
   font-weight: 600;
-  cursor: pointer;
 }
 
 #addon_item_4 {
   grid-area: A4;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 #addon_item_4_in {
   display: flex;
@@ -1273,7 +1259,7 @@ ol li {
 @media screen and (min-width: 668px) and (max-width: 736px) {
   #addon {
     margin: 0;
-    padding: 20px 10px;
+    padding: 20px 5px;
   }
   #addon_item {
     display: grid;
@@ -1282,11 +1268,23 @@ ol li {
     grid-template-areas:
       "A1 A1 A3 A3"
       "A2 A5 A4 A4";
-    grid-gap: 0.5em;
+    grid-gap: 0.2em;
   }
 
   .addon_span {
     margin-top: 10px;
+  }
+  #addon_item_1,
+  #addon_item_2,
+  #addon_item_3,
+  #addon_item_4,
+  #addon_item_5 {
+    background-color: #dfdbd4;
+    padding: 5px;
+  }
+  #addon_item_3,
+  #addon_item_4 {
+    margin-right: 10px;
   }
 
   #addon_item_1 {
@@ -1296,10 +1294,15 @@ ol li {
     justify-content: space-around;
   }
   #addon_item_1 div p {
-    padding: 10px 5px 20px 5px;
+    padding: 10px 0 20px 0;
   }
   #addon_item_1 div h4 {
     padding: 10px 0 20px 0;
+  }
+  #addon_item_4_in div:first-child {
+    background-color: #54bd9a;
+    padding: 5px 5px;
+    text-align: center;
   }
 }
 @media screen and (min-width: 737px) and (max-width: 768px) {
@@ -1366,7 +1369,6 @@ ol li {
     padding: 10px 0 20px 0;
   }
 }
-/*addon addon addon addon addon */
 /*footer footer footer footer footer */
 #footer_out {
   width: 100%;
