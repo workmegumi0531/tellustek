@@ -1123,3 +1123,248 @@ ol li {
   }
 }
 /*Best_month Best_month Best_month Best_month Best_month */
+/*addon addon addon addon addon */
+#addon_out {
+  width: 100%;
+  background-color: #ebe7df;
+}
+#addon {
+  margin: 0 20%;
+  padding: 20px 0;
+}
+#addon_item {
+  display: grid;
+  grid-template-rows: 185px 185px;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas:
+    "A1 A2 A3 A3"
+    "A1 A4 A4 A5";
+  grid-gap: 1em;
+}
+#addon_item h4,
+#addon_item h5 {
+  font-weight: normal;
+}
+#addon_item_1,
+#addon_item_2,
+#addon_item_3,
+#addon_item_4,
+#addon_item_5 {
+  background-color: #dfdbd4;
+  padding: 10px;
+}
+#addon_item_1,
+#addon_item_2,
+#addon_item_3,
+#addon_item_4,
+#addon_item_5 p {
+  font-size: 13px;
+}
+
+.addon_span {
+  margin-top: 10px;
+}
+
+#addon_item_1 {
+  grid-area: A1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#addon_item_1 div p {
+  padding: 20px 5px;
+}
+#addon_item_1 div h4 {
+  padding: 10px 5px;
+}
+
+#addon_item_2 {
+  grid-area: A2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#addon_item_3 {
+  grid-area: A3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#addon_fw1:hover,
+#addon_fw2:hover,
+#addon_fw3:hover,
+#addon_fw4:hover {
+  font-weight: 600;
+}
+#addon_item_4:hover #addon_fw4 {
+  font-weight: 900;
+}
+#addon_item_4 {
+  grid-area: A4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#addon_item_4_in {
+  display: flex;
+  align-items: center;
+}
+#addon_item_4_in div:first-child {
+  background-color: #54bd9a;
+  padding: 5px 10px;
+  text-align: center;
+}
+#addon_item_4_in > p {
+  margin-left: 10px;
+}
+#addon_item_4_in div p {
+  color: white;
+}
+#addon_item_4_in div p:last-child {
+  font-size: 15px;
+}
+
+#addon_item_5 {
+  grid-area: A5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 320px) and (max-width: 667px) {
+  #addon {
+    margin: 0;
+    padding: 20px 10px;
+    height: auto;
+  }
+  #addon_item {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "A1"
+      "A1"
+      "A2"
+      "A5"
+      "A4"
+      "A4"
+      "A3"
+      "A3";
+    grid-gap: 0.5em;
+  }
+
+  .addon_span {
+    margin-top: 10px;
+  }
+
+  #addon_item_1 {
+    grid-area: A1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #addon_item_1 div p {
+    padding: 10px 5px 20px 5px;
+  }
+  #addon_item_1 div h4 {
+    padding: 10px 0 20px 0;
+  }
+}
+@media screen and (min-width: 668px) and (max-width: 736px) {
+  #addon {
+    margin: 0;
+    padding: 20px 10px;
+  }
+  #addon_item {
+    display: grid;
+    grid-template-rows: 185px 185px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas:
+      "A1 A1 A3 A3"
+      "A2 A5 A4 A4";
+    grid-gap: 0.5em;
+  }
+
+  .addon_span {
+    margin-top: 10px;
+  }
+
+  #addon_item_1 {
+    grid-area: A1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #addon_item_1 div p {
+    padding: 10px 5px 20px 5px;
+  }
+  #addon_item_1 div h4 {
+    padding: 10px 0 20px 0;
+  }
+}
+@media screen and (min-width: 737px) and (max-width: 768px) {
+  #addon {
+    margin: 0;
+    padding: 20px 10px;
+  }
+  #addon_item {
+    display: grid;
+    grid-template-rows: 185px 185px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas:
+      "A1 A1 A3 A3"
+      "A2 A5 A4 A4";
+    grid-gap: 0.5em;
+  }
+
+  .addon_span {
+    margin-top: 10px;
+  }
+
+  #addon_item_1 {
+    grid-area: A1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #addon_item_1 div p {
+    padding: 10px 5px 20px 5px;
+  }
+  #addon_item_1 div h4 {
+    padding: 10px 0 20px 0;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #addon {
+    margin: 0;
+    padding: 20px 10px;
+  }
+  #addon_item {
+    display: grid;
+    grid-template-rows: 185px 185px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas:
+      "A1 A1 A3 A3"
+      "A2 A5 A4 A4";
+    grid-gap: 0.5em;
+  }
+
+  .addon_span {
+    margin-top: 10px;
+  }
+
+  #addon_item_1 {
+    grid-area: A1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #addon_item_1 div p {
+    padding: 10px 5px 20px 5px;
+  }
+  #addon_item_1 div h4 {
+    padding: 10px 0 20px 0;
+  }
+}
+/*addon addon addon addon addon */
