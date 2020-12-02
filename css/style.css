@@ -1196,10 +1196,9 @@ ol li {
 #addon_fw3:hover,
 #addon_fw4:hover {
   font-weight: 600;
+  cursor: pointer;
 }
-#addon_item_4:hover #addon_fw4 {
-  font-weight: 900;
-}
+
 #addon_item_4 {
   grid-area: A4;
   display: flex;
