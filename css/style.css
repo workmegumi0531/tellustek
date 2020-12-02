@@ -368,7 +368,17 @@
     align-self: flex-end;
   }
 }
-@media screen and (min-width: 416px) and (max-width: 736px) {
+@media screen and (min-width: 416px) and (max-width: 667px) {
+  #menu_nav {
+    margin: 0;
+  }
+  #menu_nav_left div {
+    display: flex;
+    cursor: pointer;
+    padding: 20px 10px;
+  }
+}
+@media screen and (min-width: 668px) and (max-width: 736px) {
   #menu_nav {
     margin: 0;
   }
@@ -1308,7 +1318,7 @@ ol li {
 @media screen and (min-width: 737px) and (max-width: 768px) {
   #addon {
     margin: 0;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
   #addon_item {
     display: grid;
@@ -1317,7 +1327,7 @@ ol li {
     grid-template-areas:
       "A1 A1 A3 A3"
       "A2 A5 A4 A4";
-    grid-gap: 0.5em;
+    grid-gap: 0.2em;
   }
 
   .addon_span {
