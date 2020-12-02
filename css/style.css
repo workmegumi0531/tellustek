@@ -1135,7 +1135,7 @@ ol li {
 #addon_item {
   display: grid;
   grid-template-rows: 185px 185px;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 24% 24% 24% 24%;
   grid-template-areas:
     "A1 A2 A3 A3"
     "A1 A4 A4 A5";
