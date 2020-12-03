@@ -156,6 +156,7 @@ $(function () {
 });
 $(function () {
   sc_num();
+  sc_msg();
   $.ajax({
     url: "img_title.json",
     dataType: "json",
@@ -195,6 +196,7 @@ $(function () {
     alert("已分享成功");
   });
   $("#B_m_bottom").on("click", ".fa-shopping-cart", function () {
+    sh_c_move(this);
     var id = this.id;
     var first = $.cookie("products") == null ? true : false;
 
@@ -223,8 +225,76 @@ $(function () {
       });
     }
     sc_num();
-    alert("已成功加入購物車");
+    sc_msg();
+    // alert("已成功加入購物車");
   });
+  function sc_msg() {
+    $("#menu_nev_right ul").empty();
+    $.ajax({
+      url: "img_title.json",
+      success: function (arr) {
+        var cookieStr = $.cookie("products");
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+          var cookieArr = JSON.parse(cookieStr);
+          for (var j = 0; j < cookieArr.length; j++) {
+            if (arr[i].id == cookieArr[j].id) {
+              arr[i].num = cookieArr[j].num;
+              newArr.push(arr[i]);
+            }
+          }
+        }
+        for (var i = 0; i < newArr.length; i++) {
+          var node = $(`
+          <li>
+            <div id="sc_product_pic">
+              <img src="${newArr[i].img}" alt="" />
+            </div>
+            <div id="sc_detail_in">
+              <div id="sc_product_title">${newArr[i].title}</div>
+              <div id="sc_product_money">${newArr[i].price}</div>
+              <div id="sc_product_Num">商品數量:${newArr[i].num}</div>
+              <div id="sc_product_dBtn">刪除</div>
+            </div>
+           
+          </li>
+          
+        `);
+          node.appendTo("#menu_nev_right ul");
+        }
+        $("#sc_detail_hide ul").appendTo("");
+      },
+    });
+  }
+  $("#sc_detail_open").click(function () {
+    $("#sc_detail_hide").stop(true).show().css({ "z-index": 1 });
+  });
+  $("#sc_detail_hide").mouseleave(function () {
+    $("#sc_detail_hide").stop(true).hide().css({ "z-index": -1 });
+  });
+  function sh_c_move(oBtn) {
+    $("#icon_transform").css({
+      display: "block",
+      left: $(oBtn).offset().left,
+      top: $(oBtn).offset().top,
+    });
+
+    var X =
+      $("#sc_detail_open").offset().left - $("#icon_transform").offset().left;
+    var Y =
+      $("#sc_detail_open").offset().top - $("#icon_transform").offset().top;
+
+    var bola = new Parabola({
+      el: "#icon_transform",
+      offset: [X, Y],
+      duration: 2000,
+      curvature: 0.003,
+      callback: function () {
+        $("#icon_transform").hide();
+      },
+    });
+    bola.start();
+  }
   function sc_num() {
     var cookieStr = $.cookie("products");
     if (cookieStr) {
