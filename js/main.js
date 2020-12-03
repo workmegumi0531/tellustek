@@ -272,6 +272,20 @@ $(function () {
   $("#sc_detail_hide").mouseleave(function () {
     $("#sc_detail_hide").stop(true).hide().css({ "z-index": -1 });
   });
+
+  function sc_num() {
+    var cookieStr = $.cookie("products");
+    if (cookieStr) {
+      var cookieArr = JSON.parse(cookieStr);
+      var sum = 0;
+      for (var i = 0; i < cookieArr.length; i++) {
+        sum = sum + cookieArr[i].num;
+      }
+      $("#sc_num").html(sum);
+    } else {
+      $("#sc_num").html(0);
+    }
+  }
   function sh_c_move(oBtn) {
     $("#icon_transform").css({
       display: "block",
@@ -295,19 +309,28 @@ $(function () {
     });
     bola.start();
   }
-  function sc_num() {
+  $("#menu_nev_right ul").on("click", "#sc_product_dBtn", function () {
+    var id = $(this).closest("li").remove().attr("id");
     var cookieStr = $.cookie("products");
-    if (cookieStr) {
-      var cookieArr = JSON.parse(cookieStr);
-      var sum = 0;
-      for (var i = 0; i < cookieArr.length; i++) {
-        sum = sum + cookieArr[i].num;
+    var cookieArr = JSON.parse(cookieStr);
+    for (var i = 0; i < cookieArr.length; i++) {
+      if (cookieArr[i].id == id) {
+        cookieArr.splice(i, 1);
+        break;
       }
-      $("#sc_num").html(sum);
-    } else {
-      $("#sc_num").html(0);
     }
-  }
+    if (!cookieArr.length) {
+      // $.cookie("products", null);
+      $.removeCookie("products");
+      $.cookie("products", null, { path: "/" });
+    } else {
+      $.cookie("products", JSON.stringify(cookieArr), {
+        expires: 7,
+      });
+    }
+
+    sc_num();
+  });
 });
 $(function () {
   $("#addon_item_3").on("hover", function () {
