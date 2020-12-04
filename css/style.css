@@ -328,7 +328,7 @@
   border: 2px solid rgb(180, 0, 0) !important;
   background-color: red;
   color: wheat;
-  /* display: none !important; */
+  display: none !important;
 }
 
 @media screen and (max-width: 360px) {
