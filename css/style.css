@@ -330,6 +330,20 @@
   color: wheat;
   display: none !important;
 }
+#sc_detail_in button {
+  background-color: white;
+  color: #aaa;
+  border: 1px solid#aaa;
+  border-radius: 5px;
+}
+#sc_detail_in button:nth-child(1) {
+  margin-right: 2px;
+  padding: 0 3px;
+}
+#sc_detail_in button:nth-child(2) {
+  margin-left: 2px;
+  padding: 0 4px;
+}
 
 @media screen and (max-width: 360px) {
   #menu_nav {

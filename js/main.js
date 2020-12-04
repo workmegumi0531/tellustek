@@ -258,7 +258,7 @@ $(function () {
                 <div id="sc_detail_in">
                   <div id="sc_product_title">${newArr[i].title}</div>
                   <div id="sc_product_money">${newArr[i].price}</div>
-                  <div id="sc_product_Num">商品數量:${newArr[i].num}</div>
+                  <div id="sc_product_Num">商品數量:<button>+</button>${newArr[i].num}<button>-</button></div>
                   <div id="sc_product_dBtn">刪除</div>
                 </div>
               
@@ -341,6 +341,34 @@ $(function () {
       });
     }
 
+    sc_num();
+  });
+
+  $("#menu_nev_right ul").on("click", "button", function () {
+    var id = $(this).closest("li").remove().attr("id");
+    // alert(id);
+    var cookieStr = $.cookie("products");
+    var cookieArr = JSON.parse(cookieStr);
+    for (var i = 0; i < cookieArr.length; i++) {
+      if (id == cookieArr[i].id) {
+        if (this.innerHTML == "+") {
+          cookieArr[i].num++;
+        } else {
+          if (cookieArr[i].num == 1) {
+            alert("數量商品已為1, 請按刪除");
+          } else {
+            cookieArr[i].num--;
+          }
+        }
+        $(this)
+          .prevAll("#sc_product_Num")
+          .html("商品數量:" + cookieArr[i].num);
+        $.cookie("products", JSON.stringify(cookieArr), {
+          expires: 7,
+        });
+        break;
+      }
+    }
     sc_num();
   });
 });
