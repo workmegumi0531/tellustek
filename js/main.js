@@ -252,15 +252,17 @@ $(function () {
           for (var i = 0; i < newArr.length; i++) {
             var node = $(`
               <li id="${newArr[i].id}">
-                <div id="sc_product_pic">
-                  <img src="${newArr[i].img}" alt="" />
-                </div>
-                <div id="sc_detail_in">
-                  <div id="sc_product_title">${newArr[i].title}</div>
-                  <div id="sc_product_money">${newArr[i].price}</div>
-                  <div id="sc_product_Num">商品數量:<button>+</button>${newArr[i].num}<button>-</button></div>
-                  <div id="sc_product_dBtn">刪除</div>
-                </div>
+              <div id="sc_product_pic">
+              <img src="${newArr[i].img}" alt="" />
+            </div>
+            <div id="sc_detail_in">
+              <div id="sc_product_title">${newArr[i].title}</div>
+              <div id="sc_product_money">${newArr[i].price}</div>
+              <div id="sc_product_Num">商品數量:${newArr[i].num}</div> 
+              <button>+</button>
+              <button>-</button>     
+              <div id="sc_product_dBtn">刪除</div>                  
+            </div>  
               
               </li>
               
@@ -273,10 +275,10 @@ $(function () {
   }
 
   $("#sc_detail_open").click(function () {
-    $("#sc_detail_hide").stop(true).show().css({ "z-index": 1 });
+    $("#sc_detail_hide").css({ right: -380 + "px", "z-index": 1 });
   });
   $("#sc_detail_hide").mouseleave(function () {
-    $("#sc_detail_hide").stop(true).hide().css({ "z-index": -1 });
+    $("#sc_detail_hide").css({ right: -760 + "px", "z-index": 0 });
   });
 
   function sc_num() {
@@ -345,7 +347,7 @@ $(function () {
   });
 
   $("#menu_nev_right ul").on("click", "button", function () {
-    var id = $(this).closest("li").remove().attr("id");
+    var id = $(this).closest("li").attr("id");
     // alert(id);
     var cookieStr = $.cookie("products");
     var cookieArr = JSON.parse(cookieStr);
@@ -354,10 +356,9 @@ $(function () {
         if (this.innerHTML == "+") {
           cookieArr[i].num++;
         } else {
-          if (cookieArr[i].num == 1) {
-            alert("數量商品已為1, 請按刪除");
-          } else {
+          if (cookieArr[i].num > 1) {
             cookieArr[i].num--;
+          } else {
           }
         }
         $(this)
