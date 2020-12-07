@@ -275,10 +275,18 @@ $(function () {
   }
 
   $("#sc_detail_open").click(function () {
-    $("#sc_detail_hide").css({ right: -380 + "px", "z-index": 1 });
+    $("#sc_detail_hide").css({
+      right: -380 + "px",
+      "z-index": 1,
+      display: "block",
+    });
   });
   $("#sc_detail_hide").mouseleave(function () {
-    $("#sc_detail_hide").css({ right: -760 + "px", "z-index": 0 });
+    $("#sc_detail_hide").css({
+      right: -760 + "px",
+      "z-index": 0,
+      display: "none",
+    });
   });
 
   function sc_num() {

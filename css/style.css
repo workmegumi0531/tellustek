@@ -272,6 +272,7 @@
   border: 1px solid #ccc;
   background-color: white;
   padding-bottom: -1px;
+  display: none;
 }
 #sc_detail_hide li {
   display: flex;
